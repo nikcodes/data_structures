@@ -13,12 +13,12 @@ class ll:
         newn=node(d)
         if self.head:
             if self.size >= 2:
-                newn.previous=self.tail
                 self.tail.next=newn
+                newn.previous=self.tail
                 self.tail=newn
             else:
-                newn.previous=self.head
                 self.head.next=newn
+                newn.previous=self.head
                 self.tail=newn
         else:
             self.head=newn
