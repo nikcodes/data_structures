@@ -16,8 +16,6 @@ class node:
         self.ind=ind
 class tree:
     pass
-    # def __init__(self):
-    #     self.root=node(di[-1][0],di[-1])
 
 o=tree()
 o.root=node(d[-1][0],d[d[-1][0]])
