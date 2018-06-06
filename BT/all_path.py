@@ -4,14 +4,16 @@
 def f(root,s):
     if not root:
         return ['None']
-    if root.val==s:
-        return [str(root.val) + ' ']
+    
     left=f(root.left,s-root.val)
     right=f(root.right,s-root.val)
 
     new=[]
     for e in left+right:
         new.append(str(root.val)+ ' ' + e)
+        
+    if root.val==s:
+        new.append(str(root.val) + ' ')
 
     return new
 
