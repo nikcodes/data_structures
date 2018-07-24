@@ -1,3 +1,4 @@
+#Reverse the given string and then find its postfix and then reverse the postfix to get prefix
 s=input()
 new=''
 for c in s[::-1]:
