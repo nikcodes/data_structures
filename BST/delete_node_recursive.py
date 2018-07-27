@@ -1,4 +1,4 @@
-#Recursive approach to delete a node in a tree
+#Recursive approach to delete a node in a BST
 
 def smallest(root):
     while root.left:
