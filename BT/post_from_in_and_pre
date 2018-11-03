@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int index(int a[],int n,int e){
+    for(int i=0;i<n;i++){
+        if(a[i]==e)
+            return i;
+    }
+    return -1;
+}
+
+void post(int pre[],int in[],int n){
+    int i=index(in,n,pre[0]);
+
+    //if left tree exists construct it
+    if(i!=0)
+        post(pre+1,in,i);
+
+    //if right subtree exists construct it
+    if(i!=n-1)
+        post(pre+i+1,in+i+1,n-i-1);
+
+    //print the root itself
+    cout<<pre[0]<<' ';
+
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int pre[n], in[n];
+    for (int i = 0; i < n; i++)
+        cin >> in[i];
+    for (int i = 0; i < n; i++)
+        cin >> pre[i];
+
+    post(pre, in, n);
+
+}
