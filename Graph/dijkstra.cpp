@@ -73,6 +73,9 @@ int main() {
 
     }
 
+    ll parent[n];
+    parent[0] = -1;
+
     pair<ll, ll> dist[n];
     forr(i, n) {
         dist[i] = mp(i, INT_MAX);
@@ -108,12 +111,25 @@ int main() {
             if (dist[j].s > d1 + e.s) {
                 dist[j].s = d1 + e.s;
                 up(dist, size, j, ind);
+                parent[v] = u;
             }
         }
     }
 
+    stack<ll> st;
     forr(i, n) {
-        cout << i << ' ' << ans[i] << '\n';
+        ll j = i;
+        while (j != -1) {
+            st.push(j);
+            j = parent[j];
+        }
+
+        while (!st.empty()) {
+            cout << st.top() << "->";
+            st.pop();
+        }
+        cout << "   Path length is " << ans[i];
+        cout << '\n';
     }
 }
 
