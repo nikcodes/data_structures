@@ -31,6 +31,7 @@ void dfs(vector<ll> a[], ll u, bool visited[], ll disc[], ll low[], ll parent[])
             child++;
             parent[v] = u;
             dfs(a, v, visited, disc, low, parent);
+            low[u] = min(low[u], low[v]);
 
             if (parent[u] == -1 && child > 1) {
                 articulation.insert(u);
